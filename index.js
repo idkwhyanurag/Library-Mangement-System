@@ -1,5 +1,6 @@
 const express = require("express");
 const users = require("./data/user.json");
+const book = require("./data/books.json");
 const app = express();
 
 const PORT = 8081;
@@ -13,12 +14,39 @@ app.get("/", (req, res) => {
   });
 });
 
-// app.get("/users", (req, res) => {
-//   res.status(200).json({
-//     message: "Success",
-//     data: users,
-//   });
-// });
+app.get("/users", (req, res) => {
+  res.status(200).json({
+    message: "Success",
+    data: users,
+  });
+});
+
+app.get("/book", (req, res) => {
+  res.status(200).json({
+    message: "Success",
+    data: book,
+  });
+});
+
+app.get("/users/:id", (req, res) => {
+  const {id}=req.params;
+  const user=users.find((each)=>each.id==id);
+  if(!user)
+  {
+    return res.status(404).json({
+      success:false,
+      message:"User Doesn't Exist!!",
+    });
+  }
+  else
+  {
+    return res.status(200).json({
+      success:true,
+      message:"User Found!",
+      data:user,
+    });
+  }
+});
 
 // app.get("/*", (req, res) => {
 //   res.status(200).json({
