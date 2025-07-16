@@ -29,21 +29,18 @@ app.get("/book", (req, res) => {
 });
 
 app.get("/users/:id", (req, res) => {
-  const {id}=req.params;
-  const user=users.find((each)=>each.id==id);
-  if(!user)
-  {
+  const { id } = req.params;
+  const user = users.find((each) => each.id == id);
+  if (!user) {
     return res.status(404).json({
-      success:false,
-      message:"User Doesn't Exist!!",
+      success: false,
+      message: "User Doesn't Exist!!",
     });
-  }
-  else
-  {
+  } else {
     return res.status(200).json({
-      success:true,
-      message:"User Found!",
-      data:user,
+      success: true,
+      message: "User Found!",
+      data: user,
     });
   }
 });
@@ -56,4 +53,25 @@ app.get("/users/:id", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is up and running on http://localhost:${PORT}`);
+});
+
+app.post("/users", (req, res) => {
+  const { id, name, surname, email } = req.body;
+  const user = user.find((each) => each.id == id);
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      message: "User Doesn't Exist!!",
+    });
+  }
+  users.push({
+    id,
+    name,
+    surname,
+    email,
+  });
+  return res.status(201).json({
+    success: true,
+    data: users,
+  });
 });
