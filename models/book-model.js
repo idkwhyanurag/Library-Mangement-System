@@ -1,33 +1,27 @@
-const mongoose = require("mongoose");
+// Data Tarnsfer Object - Book
 
-const Schema = mongoose.Schema;
+class IssuedBook {
+  _id;
+  name;
+  genre;
+  price;
+  publisher;
+  issuedBy;
+  issuedDate;
+  returnDate;
 
-const bookSchema = new Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-    },
-    author: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: String,
-      required: true,
-    },
-    genre: {
-      type: String,
-      required: true,
-    },
-    publisher: {
-      type: String,
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
+  // Whenever we create obj, the constructor gets invoked = Parametersised Constructor
+  constructor(user) {
+    this._id = user.issuedBook._id;
+    this.name = user.issuedBook.name;
+    this.genre = user.issuedBook.genre;
+    this.price = user.issuedBook.price;
+    this.publisher = user.issuedBook.publisher;
+    this.issuedBy = user.issuedBy;
+    this.issuedDate = user.issuedDate;
+    this.returnDate = user.returnDate;
   }
-);
+}
+// var ref = new IsuuedBook(userObj);
 
-module.exports = mongoose.model("Book", bookSchema);
+module.exports = IssuedBook;

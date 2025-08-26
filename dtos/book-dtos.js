@@ -1,4 +1,4 @@
-// Data Trnafer Object - Book
+// Data Tarnsfer Object - Book
 
 class IssuedBook {
   _id;
@@ -17,9 +17,11 @@ class IssuedBook {
     this.genre = user.issuedBook.genre;
     this.price = user.issuedBook.price;
     this.publisher = user.issuedBook.publisher;
-    this.name = user.issuedBook.name;
-    this.name = user.issuedBook.name;
+    this.issuedBy = user.issuedBy;
+    this.issuedDate = user.issuedDate;
+    this.returnDate = user.returnDate;
   }
 }
+// var ref = new IsuuedBook(userObj);
 
 module.exports = IssuedBook;
