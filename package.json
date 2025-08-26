@@ -1,5 +1,5 @@
 {
-  "name": "library-mangement-system",
+  "name": "j0123p3-build",
   "version": "1.0.0",
   "description": "Library System",
   "main": "index.js",
@@ -7,12 +7,20 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "author": "idkwhyAnurag",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohandt0002/J0123P3-Build.git"
+  },
+  "author": "rohan",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohandt0002/J0123P3-Build/issues"
+  },
+  "homepage": "https://github.com/rohandt0002/J0123P3-Build#readme",
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^2.0.21"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.18.2"
   }
 }
