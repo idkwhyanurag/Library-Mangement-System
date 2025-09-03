@@ -16,7 +16,7 @@ const PORT = 8081;
 
 app.use(express.json());
 
-// http://localhost:8081/users/
+// http://localhost:8081/
 http: app.get("/", (req, res) => {
   res.status(200).json({
     message: "Server is up and running :-)",
