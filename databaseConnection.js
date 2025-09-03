@@ -6,13 +6,16 @@ function DbConnection() {
   mongoose.connect(DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    dbName: "Library-Management-System",
   });
 }
 
 const db = mongoose.connection;
-db.on("error", console.error.bind(console, "Connection Errors"));
+
+db.on("error", console.error.bind(console, "Connection Errors:"));
 
 db.once("open", function () {
-  console.log("DB Connected !!");
+  console.log("DB Connected!!");
 });
+
 module.exports = DbConnection;
